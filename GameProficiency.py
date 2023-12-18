@@ -3,23 +3,23 @@ def calculate_rank():
         wins_value = int(input("Enter the number of wins: "))
         games_played_value = int(input("Enter the number of games played: "))
         
-        # Verify that games played is not less than wins
+        # wins_value must not exceed games_played_value
         if games_played_value >= wins_value:
             break
         else:
             print("Invalid input. The number of games played must not be less than the number of wins. Please try again.")
 
-    # Define more refined membership functions for wins
+    #membership functions for wins
     low_wins_membership = max(0, min((10 - wins_value) / 10, 1))
     medium_wins_membership = max(0, min((wins_value - 10) / 20, 1))
     high_wins_membership = max(0, min((wins_value - 30) / 30, 1))
 
-    # Define more refined membership functions for games played
+    #membership functions for games played
     low_games_membership = max(0, min((10 - games_played_value) / 10, 1))
     medium_games_membership = max(0, min((games_played_value - 10) / 30, 1))
     high_games_membership = max(0, min((games_played_value - 40) / 30, 1))
 
-    # Apply fuzzy logic rules
+    #fuzzy logic rules
     rule1 = min(low_wins_membership, low_games_membership)
     rule2 = min(medium_wins_membership, low_games_membership)
     rule3 = min(high_wins_membership, low_games_membership)
@@ -30,7 +30,7 @@ def calculate_rank():
     rule8 = min(medium_wins_membership, high_games_membership)
     rule9 = min(high_wins_membership, high_games_membership)
 
-    # Apply centroid defuzzification
+    #centroid defuzzification
     numerator = (
         rule1 * 5 + rule2 * 20 + rule3 * 40 +
         rule4 * 20 + rule5 * 50 + rule6 * 70 +
@@ -43,21 +43,38 @@ def calculate_rank():
     else:
         fuzzy_result = 0
 
-    # Define linguistic labels
+    # linguistic label
     if fuzzy_result <= 15:
         result = 'a Happy Noob'
     elif fuzzy_result <= 35:
         result = 'a Determined Rookie'
     elif fuzzy_result <= 60:
         result = 'a Hungry Veteran'
-    elif fuzzy_result <= 85:
+    elif fuzzy_result <= 80:
         result = 'an Evil Warlord'
+    elif fuzzy_result <= 90:
+        result = 'a BurnOut'  # Adjusted label for BurnOut
     elif fuzzy_result <= 100:
         result = 'in Gamer Utopia'
     else:
         result = 'Unknown'
 
-    # Display the crisp result with two decimal places
+    #value of rules
+    print(f"rule1: {rule1}")
+    print(f"rule2: {rule2}")
+    print(f"rule3: {rule3}")
+    print(f"rule4: {rule4}")
+    print(f"rule5: {rule5}")
+    print(f"rule6: {rule6}")
+    print(f"rule7: {rule7}")
+    print(f"rule8: {rule8}")
+    print(f"rule9: {rule9}")
+    print(f"numerator: {numerator}")
+    print(f"denominator: {denominator}")
+    print(f"---------------------------")
+    
+    
+    #crisp output
     formatted_result = "{:.2f}".format(fuzzy_result)
     print(f"Player's Game Proficiency: {formatted_result}")
     print(f"You are {result}!!")
