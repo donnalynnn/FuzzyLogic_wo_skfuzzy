@@ -53,25 +53,25 @@ def calculate_rank():
     elif fuzzy_result <= 80:
         result = 'an Evil Warlord'
     elif fuzzy_result <= 90:
-        result = 'a BurnOut'  # Adjusted label for BurnOut
+        result = 'a BurnOut' 
     elif fuzzy_result <= 100:
         result = 'in Gamer Utopia'
     else:
         result = 'Unknown'
 
     #value of rules
-    print(f"rule1: {rule1}")
-    print(f"rule2: {rule2}")
-    print(f"rule3: {rule3}")
-    print(f"rule4: {rule4}")
-    print(f"rule5: {rule5}")
-    print(f"rule6: {rule6}")
-    print(f"rule7: {rule7}")
-    print(f"rule8: {rule8}")
-    print(f"rule9: {rule9}")
-    print(f"numerator: {numerator}")
-    print(f"denominator: {denominator}")
-    print(f"---------------------------")
+    # print(f"rule1: {rule1}")
+    # print(f"rule2: {rule2}")
+    # print(f"rule3: {rule3}")
+    # print(f"rule4: {rule4}")
+    # print(f"rule5: {rule5}")
+    # print(f"rule6: {rule6}")
+    # print(f"rule7: {rule7}")
+    # print(f"rule8: {rule8}")
+    # print(f"rule9: {rule9}")
+    # print(f"numerator: {numerator}")
+    # print(f"denominator: {denominator}")
+    # print(f"---------------------------")
     
     
     #crisp output
